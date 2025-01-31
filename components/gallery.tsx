@@ -11,7 +11,7 @@ import Image from 'next/image'
 import { useMemo, useState } from 'react'
 import { GalleryTable } from './gallery-table'
 
-const items = generateGalleryItems(12)
+const items = generateGalleryItems(32)
 
 function GalleryCard({ item }: { item: GalleryItem }) {
   return (
@@ -46,7 +46,7 @@ export default function Gallery() {
   }, [sortDirection])
 
   return (
-    <div className="container mx-auto p-2">
+    <div className="container w-full mx-auto p-2">
       <Tabs defaultValue="assets" className="w-full" value={activeTab} onValueChange={value => setActiveTab(value as TabValue)}>
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <TabsList className="h-8">
