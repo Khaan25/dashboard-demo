@@ -26,7 +26,7 @@ export default function Gallery() {
   }, [sortDirection])
 
   return (
-    <div className="container w-full mx-auto p-2">
+    <div className="container xl:max-w-6xl w-full mx-auto p-2">
       <Tabs defaultValue="assets" className="w-full" value={activeTab} onValueChange={value => setActiveTab(value as TabValue)}>
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <TabsList className="h-8">
