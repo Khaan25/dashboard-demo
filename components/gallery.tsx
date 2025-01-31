@@ -69,7 +69,7 @@ export default function Gallery() {
 
         <TabsContent value="assets" className="mt-0">
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 mx-auto max-md:w-[236px] max-xl:w-[512px] xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 mx-auto max-md:w-[236px] max-xl:w-[512px] xl:grid-cols-4 gap-6">
               {sortedItems.map(item => (
                 <GalleryCard key={item.id} item={item} />
               ))}
