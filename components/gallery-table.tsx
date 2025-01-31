@@ -1,7 +1,6 @@
 import { GalleryItem } from '@/types'
-import { Table } from 'lucide-react'
 import Image from 'next/image'
-import { TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table'
 
 export function GalleryTable({ items }: { items: GalleryItem[] }) {
   return (
