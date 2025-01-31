@@ -5,33 +5,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { generateGalleryItems } from '@/lib/generate-data'
 import { cn } from '@/lib/utils'
-import { GalleryItem, SortDirection, TabValue, ViewMode } from '@/types'
-import { ArrowUpDown, Grid, Heart, List, ThumbsUp } from 'lucide-react'
-import Image from 'next/image'
+import { SortDirection, TabValue, ViewMode } from '@/types'
+import { ArrowUpDown, Grid, Heart, List } from 'lucide-react'
 import { useMemo, useState } from 'react'
+import { GalleryCard } from './gallery-card'
 import { GalleryTable } from './gallery-table'
 
 const items = generateGalleryItems(32)
-
-function GalleryCard({ item }: { item: GalleryItem }) {
-  return (
-    <div className="group bg-card rounded-md overflow-hidden">
-      <div className="relative aspect-square overflow-hidden">
-        <Image src={item.imageUrl || '/placeholder.svg'} alt={item.title} fill className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw" />
-        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <div className="text-white flex items-center gap-1">
-            <ThumbsUp className="h-4 w-4" />
-            <span className="text-sm font-medium">{item.likes}</span>
-          </div>
-        </div>
-      </div>
-      <div className="p-2">
-        <h3 className="text-sm font-medium truncate">{item.title}</h3>
-        <p className="text-xs text-muted-foreground truncate">{item.creator}</p>
-      </div>
-    </div>
-  )
-}
 
 export default function Gallery() {
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
@@ -89,7 +69,7 @@ export default function Gallery() {
 
         <TabsContent value="assets" className="mt-0">
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {sortedItems.map(item => (
                 <GalleryCard key={item.id} item={item} />
               ))}

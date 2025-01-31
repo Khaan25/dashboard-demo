@@ -1,18 +1,18 @@
 import { GalleryItem } from '@/types'
-import { ThumbsUp } from 'lucide-react'
 import Image from 'next/image'
 
 export function GalleryCard({ item }: { item: GalleryItem }) {
   return (
-    <div className="group bg-card">
-      <div className="relative aspect-square rounded-md overflow-hidden">
-        <Image src={item.imageUrl || '/placeholder.svg'} alt={item.title} fill className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw" />
-
-        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <div className="text-white flex items-center gap-1">
-            <ThumbsUp className="size-4" />
-            <span className="text-sm font-medium">{item.likes}</span>
-          </div>
+    <div className="group bg-card overflow-hidden">
+      <div className="p-5 bg-gray-100 rounded-md border border-border">
+        <div className="relative aspect-square min-h-96 w-full rounded-md overflow-hidden">
+          <Image src={item.imageUrl || '/placeholder.svg'} width={400} height={500} alt={item.title} className="object-contain h-full transition-transform duration-300 ease-in-out group-hover:scale-110" />
+          {/* <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="text-white flex items-center gap-1">
+              <ThumbsUp className="size-4" />
+              <span className="text-sm font-medium">{item.likes}</span>
+            </div>
+          </div> */}
         </div>
       </div>
 
